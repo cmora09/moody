@@ -7,8 +7,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'a53bca8ddf1297925b6cc5df681f7a6976346abf5eb9a070350ed68a1f6611cb980dc21ae31bf23782bd3ac46f9beaf6fe6b7d8212d044881e4b70f90150c14e'
-  config.omniauth :spotify, ENV['SPOTIFY_KEY'], ENV['SPOTIFY_SECRET'], callback_url: "http://localhost:3000/auth/spotify/callback"
-  # ==> Mailer Configuration
+ 
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
@@ -262,4 +261,5 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+   config.omniauth :spotify, ENV['SPOTIFY_KEY'], ENV['SPOTIFY_SECRET'], scope: 'playlist-read-private user-read-private user-read-email playlist-modify-public playlist-modify-private'
 end
